@@ -1,0 +1,97 @@
+
+{% load static %}
+<html>
+  <head>
+    <title>User App</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .navbar-custom {
+  background: transparent;
+}
+      body {
+          /* Replace 'background.jpg' with the path to your image */
+          background-image: url("{% static './457167.jpg' %}");
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-size: cover;
+          color: white;
+      }
+      
+  </style>
+  </head>
+
+
+  <body>
+     <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+          <h5 class="pt-1">USER</h5>
+      </a>
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+      </button>
+      
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <a class="nav-link" href="/">HOME</a>
+              </li>
+              {% if request.user.is_authenticated %}
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'profile' %}">  {{ request.user.username }}  </a> 
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}">  Logout  </a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Login</a> 
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}">Signup</a>
+            </li>
+            {% endif %}
+          </ul>
+          <!-- Left links -->
+
+          <!-- Right elements -->
+          <div class="d-flex align-items-center justify-content-start">
+              <!-- Icon -->
+              <a class="text-reset me-3" href="#">
+                  <i class="fas fa-shopping-cart text-white"></i>
+              </a>
+
+              <!-- Notifications -->
+              
+             
+          </div>
+         
+      </div>
+     
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+
+    {% block content %}
+
+    
+    {% endblock %}
+
+
+    
+  </body>
+</html>
+
+
+

@@ -1,0 +1,22 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <div class="row">
+      <div class="col-md-6 offset-md-3">
+          <h1 class="text-center">Profile</h1>
+          <div class="card" >
+              <div class="card-body" style="background-color: rgba(11, 7, 7, 0.8);>
+                
+                  <h5 class="card-title">{{ first_name }} {{ last_name }}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{ email }}</h6>
+                  <p class="card-text">Username: {{ username }}</p>
+                  <p class="card-text">Bio: </p>
+                        <textarea class="form-control" rows="3"></textarea>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}
